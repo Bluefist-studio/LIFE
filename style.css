@@ -1,0 +1,270 @@
+body {
+  background: #0b0b0b;
+  color: #00ff66;
+  font-family: Consolas, "Courier New", monospace;
+  padding: 20px;
+}
+
+#terminal {
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid #00aa44;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ascii-logo {
+  color: #00ff66;
+  text-shadow: 0 0 6px #00ff66, 0 0 10px #00ff66;
+  font-family: Consolas, monospace;
+  margin: 0;
+  line-height: 1;
+  font-size: 32px;
+}
+/* Clickable activity lines */
+.activity-line {
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.activity-line:hover {
+  text-decoration: underline;
+}
+
+.view {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.line {
+  margin-top: 8px;
+}
+
+.friend-details {
+  color: #00ff66;
+  font-family: Consolas, monospace;
+}
+
+
+#dailyQuote {
+  font-size: 1em;        /* adjust size */
+  font-weight: 600;      /* 300 = light, 600 = semi-bold */
+  margin-top: 10px;      /* space below the logo */
+  margin-bottom: 25px;   /* space above the promo message */
+  text-align: center;    /* optional */
+  color: #00ff66;           /* optional */
+}
+
+#phyloMessage * {
+  margin: 0;
+  padding: 0;
+}
+
+#promoMessage * {
+  margin: 0;
+  padding: 0;
+}
+
+#promoMessage {
+  margin-top: 20px;
+margin-bottom: 40px;
+}
+
+.promo-headline {
+  font-size: 0.85em;
+  font-weight: normal;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.promo-features {
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin-top: -10px;
+margin-bottom: -10px;
+  white-space: pre-wrap;
+}
+
+.promo-paragraph {
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+
+/* ---------- INPUTS ---------- */
+input {
+  width: 100%;
+  background: black;
+  color: #00ff66;
+  border: 1px solid #00aa44;
+  font-family: inherit;
+  font-size: 16px; /* mobile-safe */
+  padding: 6px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00aa44;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+  background: black;
+  color: #00ff66;
+  border: 1px solid #00aa44;
+  font-family: inherit;
+  font-size: 16px; /* mobile-safe */
+  padding: 8px;
+  cursor: pointer;
+  margin-top: 5px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:hover {
+  background: #00aa44;
+  color: black;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* ---------- MENU ---------- */
+#menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ---------- ERRORS ---------- */
+#error,
+.error {
+  color: #ff5555;
+  margin-top: 5px;
+}
+
+/* ---------- FORMS ---------- */
+#activityForm input,
+#profileForm input {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+#activityForm button,
+#profileForm button {
+  margin-right: 5px;
+  margin-bottom: 8px;
+  padding: 8px;
+  width: auto;
+}
+
+/* ---------- SCREEN ---------- */
+#screen {
+  margin-top: 15px;
+  padding-left: 5px;
+  white-space: pre-wrap;
+}
+
+/* ---------- SELECTION (terminal feel) ---------- */
+::selection {
+  background: transparent;
+  color: #00ff66;
+}
+
+input::selection {
+  background: transparent;
+  color: #00ff66;
+}
+
+/* --- Mobile scaling --- */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  #terminal {
+    max-width: none;
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Bigger tap targets + readable text */
+  input,
+  button {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+
+  .line {
+    font-size: 18px;
+  }
+
+.line, .friend-details, #screen {
+  font-family: Consolas, "Courier New", monospace !important;
+  white-space: pre-wrap;
+}
+
+
+
+
+  #screen {
+    font-size: 18px;
+    line-height: 1.35;
+    padding-left: 0;
+  }
+
+  #menu {
+    grid-template-columns: 1fr;  /* one column menu on phone */
+    gap: 10px;
+  }
+
+  .ascii-logo {
+    font-size: 32px;
+    white-space: pre-wrap;
+  }
+}
+
+#healthBarContainer {
+  width: 100%;
+  height: 20px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+#healthBarFill {
+  height: 100%;
+  width: 0%;
+  background: red;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+#healthBarLabel {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
