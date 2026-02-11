@@ -1,0 +1,1519 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* Force VT323 font everywhere, even if style.css is present */
+body, .pipboy-theme, .pipboy-theme * {
+  font-family: "VT323", monospace !important;
+}
+
+
+:root {
+  --color-bg-main: #0a1f14;
+  --color-bg-panel: rgba(10, 31, 20, 0.7);
+  --color-bg-panel-strong: rgba(10, 31, 20, 0.85);
+  --color-bg-panel-light: rgba(10, 31, 20, 0.5);
+  --color-bg-modal: #0f2d0f;
+  --color-bg-paid: #1a2e1a;
+  --color-bg-summary: rgb(17, 51, 33);
+  --color-accent: #8cff9a;
+  --color-accent-strong: #00ff66;
+  --color-accent-mid: #4cff6a;
+  --color-accent-paid: #6aff6a;
+  --color-accent-income: #aaffb8;
+  --color-accent-summary: #00cc55;
+  --color-error: #ff5555;
+  --color-white: #fff;
+  --color-paid-glow: #6aff6a66;
+  --color-hover-bg: rgba(76, 255, 106, 0.15);
+  --color-bg-accordion-btn: #00ffea22;
+  --color-pipboy-theme: #baffc9;
+  --color-box-shadow: #00ffea44;
+}
+
+
+
+
+.budui-accordion-btn.main-cat.open {
+  background: #00ffea22;
+  color: #00ff66;
+  box-shadow: 0 0 18px #00ff66;
+}
+.budui-accordion-btn.cat.open {
+  background: #00ffea22;
+  color: #00ff66;
+  box-shadow: 0 0 14px #00ff66;
+}
+
+
+.budui-edit-amount {
+    font-size: 20px !important;
+  }
+.budui-edit-amount .budui-total {
+    font-size: 20px !important;
+  }
+.budui-edit-amount .budui-half {
+    font-size: 20px !important;
+  }
+  
+
+/* Force lock buttons to have no border, even if inherited */
+.budui-lock-btn, .budui-lock-btn:focus, .budui-lock-btn:active, .budui-lock-btn:hover {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Modernized Pip-Boy Color Palette & Borders --- */
+body, .pipboy-theme {
+  background: linear-gradient(135deg, #0a1f14 60%, #1a3a2a 100%);
+  color: #baffc9;
+}
+
+.pipboy-theme {
+  box-shadow: 0 0 40px #00ffea44 inset;
+  border-radius: 18px;
+  /* border: 3px solid #00ffea; */
+}
+
+/* Panels & Cards */
+.pipboy-theme .panel,
+.pipboy-theme .card,
+.pipboy-theme .container {
+  border: 2px solid #00ffea;
+  background: rgba(10, 31, 20, 0.85);
+  box-shadow: 0 0 18px #00ffea99;
+  border-radius: 12px;
+}
+
+/* Main category buttons (main-cat) */
+.budui-accordion-btn.main-cat {
+  border: 3px solid #00ffea;
+  box-shadow: 0 0 12px #00ffea;
+  font-size: 28px;
+  background: linear-gradient(90deg, #0a1f14 60%, #1a3a2a 100%);
+  color: #00ffea;
+  text-shadow: 0 0 10px #00ffea;
+  border-radius: 10px;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.budui-accordion-btn.main-cat.open {
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+.budui-accordion-btn.main-cat:hover {
+  background: #00ffea22;
+  color: #00ff66;
+  box-shadow: 0 0 18px #00ff66;
+}
+/* Flagrant paid cue */
+.budui-paid {
+  background: linear-gradient(90deg, #00ff66 0%, #baffc9 100%) !important;
+  color: #0a1f14 !important;
+  border: 2px solid #00ff66 !important;
+  box-shadow: 0 0 16px #00ff66, 0 0 8px #baffc9;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ff66, 0 0 2px #baffc9;
+  animation: buduiPaidPulse 1.2s infinite alternate;
+}
+@keyframes buduiPaidPulse {
+  0% { box-shadow: 0 0 8px #00ff66, 0 0 2px #baffc9; }
+  100% { box-shadow: 0 0 24px #00ff66, 0 0 12px #baffc9; }
+}
+
+/* Spending entry line */
+.budui-list-entry {
+  border-top: 2px solid #6aff6a66;
+  margin-top: 8px;
+  padding-top: 8px;
+  font-size: 22px;
+  color: #00ff66;
+  background: rgba(10,31,20,0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.budui-list-entry .budui-list-amount {
+  margin-left: 16px;
+  min-width: 90px;
+  text-align: right;
+  display: inline-block;
+}
+
+/* Sub-category buttons (cat) */
+.budui-accordion-btn.cat {
+  border: 2px solid #00ffea;
+  box-shadow: 0 0 8px #00ffea;
+  font-size: 22px;
+  background: rgba(10, 31, 20, 0.8);
+  color: #baffc9;
+  text-shadow: 0 0 6px #00ffea;
+  border-radius: 8px;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.budui-accordion-btn.cat:hover {
+  background: #00ffea22;
+  color: #00ff66;
+  box-shadow: 0 0 14px #00ff66;
+}
+
+/* Panels */
+.budui-accordion-panel {
+  background: rgba(10, 31, 20, 0.7);
+  border: 2px solid #00ffea;
+  border-radius: 10px;
+  color: #baffc9;
+  box-shadow: 0 0 10px #00ffea;
+}
+
+/* Action Buttons */
+.budui-action-btn, .pipboy-theme button, button {
+  background: linear-gradient(90deg, #0a1f14 60%, #1a3a2a 100%);
+  color: #00ffea;
+  border: 2px solid #00ffea;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #00ffea;
+  font-size: 22px;
+  padding: 12px 0;
+  font-family: "VT323", monospace;
+  cursor: pointer;
+  text-shadow: 0 0 6px #00ffea;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.budui-action-btn:hover, .pipboy-theme button:hover, button:hover {
+  background: #00ffea22;
+  color: #00ff66;
+  box-shadow: 0 0 16px #00ff66;
+}
+
+/* Inputs */
+.pipboy-theme input, .pipboy-theme select, input, select {
+  background: rgba(10, 31, 20, 0.85);
+  border: 2px solid #00ffea;
+  border-radius: 8px;
+  color: #baffc9;
+  font-family: "VT323", monospace;
+  font-size: 22px;
+  text-shadow: 0 0 4px #00ffea;
+  box-shadow: 0 0 6px #00ffea44;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pipboy-theme input:focus, .pipboy-theme select:focus, input:focus, select:focus {
+  border-color: #00ff66;
+  box-shadow: 0 0 12px #00ff66;
+  outline: none;
+}
+
+/* Accent text */
+.budui-section-title, .budui-summary-label, .pip-title, .line strong, .history-title {
+  color: #00ffea !important;
+  text-shadow: 0 0 8px #00ffea;
+}
+
+/* Totals and values */
+.budui-summary-value, .budui-list-total {
+  color: #00ff66;
+  text-shadow: 0 0 8px #00ff66;
+}
+
+/* Make spending total as big as entries */
+#spendingPanelTotal.budui-list-total {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 8px 0 0 0;
+  color: #00ff66;
+  background: rgba(10,31,20,0.7);
+  border-top: 2px solid #6aff6a66;
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Unified lock button style */
+.budui-lock-btn {
+  position: absolute;
+  top: 0.25em;
+  right: 0.25em;
+  z-index: 2;
+  background: transparent;
+  border: none !important;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main category buttons (main-cat) */
+.budui-accordion-btn.main-cat {
+  border: 3px solid #00ff66;
+  box-shadow: 0 0 8px #4cff6a;
+  font-size: 26px;
+  background: rgba(10, 31, 20, 0.85);
+  color: #00ff66;
+  text-shadow: 0 0 8px #00ff66;
+}
+
+/* Sub-category buttons (cat) */
+.budui-accordion-btn.cat {
+  border: 2px solid #4cff6a;
+  box-shadow: 0 0 8px #4cff6a;
+  font-size: 20px;
+  background: rgba(10, 31, 20, 0.7);
+  color: #8cff9a;
+  text-shadow: 0 0 4px #8cff9a;
+}
+
+
+/* Modal edit row: Edit/Delete side by side, Cancel below */
+.budui-modal-edit-row {
+  display: block;
+  width: 100%;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.budui-modal-edit-row .budui-action-btn {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.budui-modal-cancel-btn {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+
+/* Full-width cancel button for modal */
+.budui-modal-cancel-btn {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+}
+
+
+.budui-paid {
+  box-shadow: 0 0 8px 2px #6aff6a, 0 0 16px 4px #6aff6a66;
+  border-color: #6aff6a !important;
+  background: #1a2e1a !important;
+  color: #6aff6a !important;
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+
+/* Modal entry info column layout */
+.budui-modal-entry-info {
+  position: relative;
+  top: -30px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* Paid income entries look like totals */
+.budui-list-item.paid.income {
+  color: #aaffb8;
+  text-shadow: 0 0 7px #4cff6a, 0 0 2px #fff;
+  font-size: 19px;
+  font-weight: bold;
+  background: none;
+  filter: none;
+  letter-spacing: 0.5px;
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Glowing/bright paid entry */
+.budui-list-item.paid {
+  font-size: 19px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.budui-list-item.paid * {
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+
+/* Modal for entry actions */
+.budui-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.budui-modal-content {
+  background: #0f2d0f;
+  border: 2px solid #4cff6a;
+  box-shadow: 0 0 24px #4cff6a;
+  padding: 24px 36px;
+  border-radius: 16px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  font-size: 32px;
+  margin: 32px;
+}
+.budui-modal-btn-row {
+  display: flex;
+  width: 100%;
+  margin: 4px 0 0 0;
+  padding: 0;
+  font-size: 20px;
+  gap: 18px;
+}
+
+/* Remove extra margin below the last button row in the modal */
+.budui-modal-content > .budui-modal-btn-row:last-child {
+  margin-bottom: 0;
+}
+
+.budui-modal-close {
+  position: relative;
+  top: -25px;
+  left: 120px;
+  color: #8cff9a;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  border: none !important;
+}
+
+.budui-check-btn {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px 0;
+  font-size: 20px;
+  background: transparent;
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  font-family: "VT323", monospace;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.budui-check-btn:hover {
+  background: rgba(76, 255, 106, 0.15);
+  box-shadow: 0 0 10px #4cff6a;
+}
+
+
+/* Left-align totals */
+#transactionTotal, .budui-list-total {
+  text-align: right !important;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+
+/* BUDGET UI LIST ITEMS & PAID BUTTONS */
+.budui-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #4cff6a22;
+  font-size: 18px;
+}
+.budui-list-item:last-child {
+  border-bottom: none;
+}
+.budui-list-item.paid.recurrent {
+  text-decoration: line-through;
+}
+.budui-paid-btn {
+  background: transparent;
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  font-family: "VT323", monospace;
+  font-size: 16px;
+  padding: 4px 0;
+  min-width: 110px;
+  max-width: 120px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 6px #4cff6a;
+}
+.budui-paid-btn:hover {
+  background: rgba(76, 255, 106, 0.15);
+  box-shadow: 0 0 10px #4cff6a;
+}
+.budui-paid-label {
+  color: #00ff66;
+  font-size: 16px;
+  margin-left: 10px;
+  text-shadow: 0 0 4px #00ff66;
+}
+.budui-list-total {
+  text-align: left;
+  color: #8cff9a;
+  font-size: 18px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+
+
+/* BUDGET UI WEEKLY BREAKDOWN */
+.budui-week-block {
+  background: rgba(10, 31, 20, 0.7);
+  border: 2px solid #4cff6a;
+  border-radius: 8px;
+  margin: 24px auto 18px auto;
+  max-width: 500px;
+  padding: 18px 12px 12px 12px;
+  box-shadow: 0 0 8px #4cff6a;
+}
+.budui-week-label {
+  font-size: 22px;
+  color: #00ff66;
+  margin-bottom: 10px;
+  text-shadow: 0 0 4px #00ff66;
+  font-weight: bold;
+}
+.budui-week-section {
+  margin-bottom: 16px;
+}
+.budui-list-placeholder {
+  color: #8cff9a;
+  font-size: 18px;
+  margin: 6px 0 0 0;
+  padding-left: 8px;
+}
+.budui-add-btn {
+  font-size: 16px;
+  padding: 4px 12px;
+  margin-left: 10px;
+  display: inline-block;
+  width: auto;
+}
+
+  
+/* BUDGET UI PROGRESS BAR */
+.budui-progress-bar-wrapper {
+  margin: 32px auto 0 auto;
+  max-width: 400px;
+  text-align: center;
+}
+.budui-progress-labels, .budui-progress-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+  color: #8cff9a;
+  margin: 0 4px 2px 4px;
+}
+.budui-progress-bar-bg {
+  width: 100%;
+  height: 40px;
+  background: rgba(10, 31, 20, 0.7);
+  border: 2px solid #4cff6a;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #4cff6a;
+  margin: 0 0 2px 0;
+  overflow: hidden;
+}
+.budui-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8cff9a 0%, #4cff6a 100%);
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 0 8px #4cff6a;
+  transition: width 0.4s;
+}
+
+/* BUDGET UI ACCORDION COLUMN */
+.budui-accordion-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto 32px auto;
+  max-width: 400px;
+  width: 100%;
+}
+.budui-accordion-btn {
+  background: rgba(10, 31, 20, 0.7);
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  font-family: "VT323", monospace;
+  font-size: 22px;
+  padding: 14px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px #4cff6a;
+}
+.budui-accordion-btn:hover {
+  background: rgba(76, 255, 106, 0.15);
+  box-shadow: 0 0 12px #4cff6a;
+}
+.budui-accordion-panel {
+  display: none;
+  background: rgba(10, 31, 20, 0.5);
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  padding: 18px 0 10px 0;
+  color: #8cff9a;
+  font-size: 18px;
+  box-shadow: 0 0 6px #4cff6a;
+
+}
+.budui-section-title {
+  font-size: 20px;
+  color: #00ff66;
+  margin: 18px 0 8px 0;
+  text-shadow: 0 0 4px #00ff66;
+  font-weight: bold;
+}
+.budui-action-btn {
+  display: block;
+  width: 180px;
+  max-width: 90%;
+  margin: 8px auto;
+  padding: 12px 0;
+  font-size: 20px;
+  background: transparent;
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  font-family: "VT323", monospace;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+/* Make modal input fields wider than the button */
+.budui-modal input.budui-input {
+  width: 240px;
+  max-width: 100%;
+  font-size: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+}
+.budui-action-btn:hover {
+  background: rgba(76, 255, 106, 0.15);
+  box-shadow: 0 0 10px #4cff6a;
+}
+/* BUDGET UI SUMMARY BAR */
+.budui-summary-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 32px 0 24px 0;
+}
+.budui-summary-card {
+  flex: 1 1 120px;
+  min-width: 120px;
+  background: rgb(17, 51, 33);
+  border: 2px solid #4cff6a;
+  border-radius: 6px;
+  padding: 18px 10px 12px 10px;
+  text-align: center;
+  box-shadow: 0 0 8px #4cff6a;
+}
+.budui-summary-label {
+  font-size: 20px;
+  color: #8cff9a;
+  margin-bottom: 8px;
+  text-shadow: 0 0 4px #4cff6a;
+}
+.budui-summary-value {
+  font-size: 36px;
+  color: #00ff66;
+  font-weight: bold;
+  margin-top: 2px;
+  text-shadow: 0 0 6px #00ff66;
+}
+  
+/* LOGOUT BUTTON (bottom of page) */
+.logout-btn {
+  display: inline-block;
+  font-size: 22px;
+  min-width: 160px;
+  padding: 12px 32px;
+  margin: 0 auto;
+  background: transparent;
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  font-family: "VT323", monospace;
+  text-shadow: 0 0 4px #8cff9a;
+  box-shadow: 0 0 10px #4cff6a;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background: rgba(76, 255, 106, 0.2);
+  box-shadow: 0 0 16px #4cff6a;
+}
+
+/* --- Merged layout/spacing rules from style.css for menu/form elements, with VT323 font enforced --- */
+.view {
+  margin-top: 10px;
+}
+
+.line {
+  margin-top: 8px;
+  font-family: "VT323", monospace !important;
+}
+
+.activity-line {
+  cursor: pointer;
+  padding: 4px 0;
+  font-family: "VT323", monospace !important;
+}
+.activity-line:hover {
+  text-decoration: underline;
+}
+
+#menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  #menu {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+#activityForm input,
+#profileForm input {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  font-family: "VT323", monospace !important;
+}
+
+#activityForm button,
+#profileForm button {
+  margin-right: 5px;
+  margin-bottom: 8px;
+  padding: 8px;
+  width: auto;
+  font-family: "VT323", monospace !important;
+}
+
+button, .pipboy-theme button {
+  background: transparent;
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  font-family: "VT323", monospace !important;
+  font-size: 18px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.2s;
+}
+
+input, .pipboy-theme input {
+  font-family: "VT323", monospace !important;
+}
+/* --- Merged compact layout and error/menu rules from style.css for legacy compatibility --- */
+#menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  #menu {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.pipboy-theme button {
+  padding: 8px 16px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+#menu button {
+  font-size: 20px;
+  padding: 10px 16px;
+}
+
+.error {
+  color: #ff5555 !important;
+  margin-top: 5px;
+}
+
+.promo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#promoMessage {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#dailyQuote {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #8cff9a;
+}
+/* ---------------------------------------------------------
+   PIP-BOY THEME (Fallout 4 style)
+   Soft green, CRT scanlines, glow, retro borders
+   TOUCH-FRIENDLY UI SCALE ENABLED
+--------------------------------------------------------- */
+
+
+
+/* GLOBAL UI SCALE */
+.pipboy-theme {
+  background: #0a1f14;
+  color: #8cff9a;
+  font-family: "VT323", monospace;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px #8cff9a;
+  position: relative;
+  overflow-x: hidden;
+  max-width: 600px; /* Constrain main app width for desktop */
+  margin: 0 auto;   /* Center horizontally */
+  min-height: 100vh;
+
+}
+
+/* Pip-Boy background grid / lines */
+.pipboy-theme::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(140, 255, 154, 0.05) 0px,
+    rgba(140, 255, 154, 0.05) 2px,
+    transparent 3px,
+    transparent 4px
+  );
+  opacity: 0.25;
+  z-index: 9996; /* below vignette and sweep */
+}
+
+/* Vertical refresh sweep */
+body.pipboy-theme::before {
+  content: "";
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(76, 255, 106, 0) 0%,
+    rgba(76, 255, 106, 0.06) 55%,
+    rgba(76, 255, 106, 0) 75%
+  );
+  animation: pipboySweep 4s linear infinite;
+  z-index: 9997;
+}
+
+@keyframes pipboySweep {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+
+
+@keyframes jitter {
+  0% { transform: translate(0, 0); }
+  2% { transform: translate(1px, -1px); }
+  4% { transform: translate(-1px, 1px); }
+  6% { transform: translate(0, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.pipboy-theme #terminal {
+  animation: jitter 8s infinite;
+}
+
+
+/* Subtle vignette */
+.pipboy-theme::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.4));
+  z-index: 9998;
+}
+
+.pip-dots::after {
+  content: "";
+  animation: pipDots 1.2s steps(4, end) infinite;
+}
+
+@keyframes pipDots {
+  0%   { content: ""; }
+  25%  { content: "."; }
+  50%  { content: ".."; }
+  75%  { content: "..."; }
+  100% { content: ""; }
+}
+
+
+/* Panels / Cards */
+.pipboy-theme .panel,
+.pipboy-theme .card,
+.pipboy-theme .container {
+  border: 3px solid #4cff6a;
+  padding: 20px;
+  margin: 20px;
+  background: rgba(10, 31, 20, 0.6);
+  box-shadow: 0 0 12px #4cff6a;
+  border-radius: 4px;
+}
+
+/* Buttons */
+.pipboy-theme button {
+  background: transparent;
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  color: #8cff9a;
+
+  /* ⭐ Touch-friendly buttons */
+  padding: 14px 24px;
+  font-size: 26px;
+
+  font-family: "VT323", monospace;
+  cursor: pointer;
+  text-shadow: 0 0 4px #8cff9a;
+  transition: 0.2s;
+
+}
+
+.pipboy-theme button:hover {
+  background: rgba(76, 255, 106, 0.2);
+  box-shadow: 0 0 10px #4cff6a;
+}
+
+/* Menu buttons */
+#menu button {
+  font-size: 28px;
+  padding: 16px 24px;
+}
+
+#menu button.active {
+  background: rgba(76, 255, 106, 0.2);
+  border: 2px solid #4cff6a;
+  box-shadow: 0 0 12px #4cff6a;
+  color: #8cff9a;
+}
+
+
+/* Titles */
+.line strong,
+.history-title {
+  color: #00ff66 !important;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 0 0 6px #4cff6a;
+  margin-top: 18px;
+}
+
+/* Statistics / Section Titles */
+.pip-title {
+  color: #8cff9a !important;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 0 0 4px #8cff9a;
+  margin-top: 18px;
+}
+
+/* List items */
+.pip-item,
+.line,
+.activity-line,
+.stat-line {
+  color: #00cc55 !important;
+  text-shadow: 0 0 3px #00cc55;
+  /* ⭐ Touch-friendly list items */
+  font-size: 26px;
+  padding: 6px 0;
+}
+
+/* Status text */
+.pip-status {
+  color: #00cc55 !important;
+  text-shadow: 0 0 3px #00cc55;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+/* Inputs */
+.pipboy-theme input,
+.pipboy-theme select {
+  background: rgba(10, 31, 20, 0.6);
+  border: 2px solid #4cff6a;
+  border-radius: 4px;
+  color: #8cff9a;
+  padding: 10px;
+  font-family: "VT323", monospace;
+  font-size: 22px;
+  text-shadow: 0 0 4px #8cff9a;
+}
+
+/* Headings */
+.pipboy-theme h1,
+.pipboy-theme h2,
+.pipboy-theme h3 {
+  color: #8cff9a;
+  text-shadow: 0 0 6px #4cff6a;
+  border-bottom: 2px solid #4cff6a;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+/* Health Bar */
+.pipboy-theme #healthBarFill {
+  background: #4cff6a;
+  box-shadow: 0 0 10px #4cff6a;
+  border-radius: 2px;
+  transition: width 0.4s ease-out, background 0.3s;
+}
+
+/* Thicker Pip-Boy health bar */
+#healthBarContainer {
+  background: rgba(10, 31, 20, 0.8); /* darker Pip-Boy green/black */
+  border: 3px solid #4cff6a;         /* glowing border */
+  box-shadow: 0 0 10px #4cff6a;      /* glow */
+  border-radius: 4px;
+
+  max-width: 300px; /* adjust until it fits your layout */ 
+  width: 100%; margin: 0 auto; /* centers it */
+  height: 28px !important;   /* increase the overall bar height */
+  padding: 3px;   
+  margin-top: 0px;           /* optional: adds a nice border gap */
+  margin-bottom: 25px; 
+}
+
+#healthBarFill {
+  height: 100% !important;   /* fill the container vertically */
+  border-radius: 3px;        /* keeps the rounded look */ 
+}
+
+#healthBarFill.high {
+  background-color: #4cff6a; /* Pip-Boy green */
+}
+
+#healthBarFill.mid {
+  background-color: #c8ff4c; /* yellow-green */
+}
+
+#healthBarFill.low {
+  background-color: #ff6a4c; /* orange-red */
+}
+
+
+.pipboy-theme #healthBarLabel {
+  color: #8cff9a;
+  font-weight: normal;
+  font-size: 32px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* Friends menu input */
+.pipboy-theme #friendControls input {
+  background: rgba(10, 31, 20, 0.3);
+  border: 2px solid #4cff6a;
+  color: #8cff9a;
+  text-shadow: 0 0 2px #8cff9a;
+  box-shadow: 0 0 4px #4cff6a;
+  padding: 10px;
+  font-size: 22px;
+}
+
+/* Friend details */
+.friend-details {
+  color: #8cff9a !important;
+  text-shadow: 0 0 6px #4cff9a !important;
+}
+
+#friendControls {
+  display: flex;
+  flex-direction: column; /* input on its own row */
+  gap: 10px;
+}
+
+#friendControls button {
+  width: 120px;              /* your equal width */
+  display: flex;             /* center content inside */
+  justify-content: center;   /* horizontal centering */
+  align-items: center;       /* vertical centering */
+  text-align: center;        /* just in case */
+}
+
+
+
+#friendControls .button-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center; /* centers Follow + Unfollow */
+}
+
+
+.friendButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* Terminal */
+.pipboy-theme #terminal {
+  border: 3px solid #4cff6a;
+  box-shadow: 0 0 7px #4cff6a, inset 0 0 15px rgba(76, 255, 106, 0.2);
+  border-radius: 8px;
+  background: radial-gradient(circle at center, rgba(10, 31, 20, 0.7) 0%, #0a1f14 100%);
+  padding: 20px;
+}
+
+/* Dropdown modal */
+.pipboy-modal .modal-content {
+  width: 80%;
+  max-height: 30vh;
+  overflow: auto;
+  background: rgba(10, 31, 20, 0.95);
+  border: 3px solid #4cff6a;
+  box-shadow: 0 0 18px #4cff6a;
+  padding: 24px;
+  border-radius: 6px;
+  margin-top: 25px;
+
+}
+
+.pipboy-modal {
+
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/*anchor*/
+#menuAnchor {
+  height: 1px;
+}
+
+
+
+/* Modal title */
+.modal-title {
+  color: #8cff9a;
+  font-size: 28px;
+  text-shadow: 0 0 6px #4cff6a;
+}
+
+/* Modal input */
+#modalActivityInput {
+  width: calc(100% - 8px);
+  padding: 10px 14px 10px 10px;
+  font-size: 22px;
+  background: #0a1f14;
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  box-shadow: 0 0 8px #4cff6a;
+  box-sizing: border-box;
+}
+
+/* Dropdown items */
+.modal-dropdown div {
+  padding: 10px;
+  cursor: pointer;
+  color: #8cff9a;
+  font-size: 22px;
+  text-shadow: 0 0 4px #8cff9a;
+}
+
+.modal-dropdown div:hover {
+  background: rgba(76, 255, 106, 0.2);
+  box-shadow: 0 0 10px #4cff6a;
+}
+
+#modalDropdown {
+  max-height: 30vh;     /* adjust as needed */
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+/* Modal buttons */
+#modalAddBtn,
+#modalCloseBtn {
+overflow-y: fixed;
+  width: 40%;
+  padding: 12px;
+  font-size: 24px;
+  background: #0a1f14;
+  color: #8cff9a;
+  border: 2px solid #4cff6a;
+  box-shadow: 0 0 8px #4cff6a;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;            /* space between buttons */
+  margin-top: 16px;
+}
+
+.modal-buttons button {
+  width: auto;
+  min-width: 120px;
+  text-align: center;
+}
+
+#modalAddBtn:hover,
+#modalCloseBtn:hover {
+  background: rgba(76, 255, 106, 0.2);
+  border-color: #8cff9a;
+  box-shadow: 0 0 12px #8cff9a;
+}
+
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+
+
+/* Placeholder */
+.pipboy-theme ::placeholder {
+  color: #8cff9a;
+  opacity: 0.5;
+  text-shadow: 0 0 4px #8cff9a;
+}
+
+/* Global font lock for Pip-Boy */
+.pipboy-theme *:not(.ascii-logo) {
+  font-family: "VT323", monospace !important;
+}
+
+/* ASCII logo keeps its own font */
+.ascii-logo {
+  color: #8cff9a;
+  text-shadow: 0 0 6px #8cff9a, 0 0 10px #8cff9a;
+  font-family: "VT323", monospace !important;
+  margin: 0;
+  line-height: 1;
+  font-size: 64px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+
+#dailyQuote {
+  font-size: 26px;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #00cc55;
+}
+
+.promo {
+  font-size: 26px;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #8cff9a;
+}
+
+.menu-section-title {
+  font-size: 30px !important;
+  font-weight: bold;
+  color: #00ff66 !important;
+  text-shadow: 0 0 6px #00cc55 !important;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   CONFIRMATION MODAL (YES/NO)
+   ============================ */
+.edit-confirm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(10, 31, 20, 0.95);
+  border: 2px solid #4cff6a;
+  min-width: 220px;
+  max-width: 90vw;
+  min-height: 120px;
+  max-height: 70vh;
+  padding: 32px 16px 28px 16px;
+  box-shadow: 0 0 18px #4cff6a;
+  z-index: 9999;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.edit-confirm .modal-title {
+  margin-bottom: 36px;
+  font-size: 32px;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+
+.edit-confirm .confirm-line {
+  margin-bottom: 24px !important;
+  margin-top: 0 !important;
+  font-size: 22px !important;
+  box-sizing: border-box;
+}
+
+.edit-confirm .confirm-row {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  box-sizing: border-box;
+}
+
+.edit-confirm .confirm-row .pip-btn {
+  width: 120px;
+  height: 48px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================
+   GENERIC CONFIRM ROW
+   ============================ */
+.confirm-row {
+  margin-top: 0px;
+  display: flex;
+  gap: 32px; /* default gap for modal */
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================
+   EDIT FORM BUTTONS (normal size)
+   ============================ */
+#activityForm .confirm-row {
+  gap: 12px; /* smaller gap for edit form */
+}
+
+#activityForm .confirm-row .pip-btn {
+  width: auto;
+  height: auto;
+  font-size: 32px;
+  padding: 6px 14px;
+}
+
+#activityForm .confirm-row button {
+  width: 120px;
+  height: auto;
+  font-size: 18px;
+  padding: 6px 14px;
+}
+
+#addActivityBtn {
+  width: auto !important;
+  height: 70px !important;
+  font-size: 32px !important;
+}
+
+#savechangesBtn {
+  width: 120px !important;
+  height: auto !important;
+  font-size: 18px !important;
+}
+
+
+
+/* ============================
+   DELETE FORM BUTTONS
+   ============================ */
+#deleteForm button {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+/* ============================
+   BASE PIP BUTTON STYLE
+   ============================ */
+.pip-btn {
+  display: inline-block;
+  border: 2px solid #4cff6a;
+  padding: 6px 14px;
+  cursor: pointer;
+  color: #8cff9a;
+  font-size: 18px;
+  text-transform: uppercase;
+  background: transparent;
+  user-select: none;
+}
+
+.pip-btn:hover {
+  background: rgba(76, 255, 106, 0.2);
+  box-shadow: 0 0 8px #4cff6a;
+}
+
+/* ============================
+   CONFIRM LINE
+   ============================ */
+.confirm-line {
+  padding: 0 !important;
+  margin: 0px 0 !important;
+  line-height: .60 !important;
+  font-size: 22px !important;
+}
+
+/*INFO*/
+#healthInfoToggle {
+  cursor: pointer;
+  padding-right: 6px;
+  color: #8cff9a;
+  text-shadow: 0 0 4px #8cff9a;
+}
+
+
+
+#healthInfoPanel {
+  margin-top: 10px;
+  padding: 12px;
+  border: 2px solid #4cff6a;
+  background: rgba(10,31,20,0.6);
+  box-shadow: 0 0 12px #4cff6a;
+  border-radius: 4px;
+  width: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.launcher-back-btn {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent;
+  text-shadow: 0 0 4px #39ff14;
+  font-size: 70px !important;
+  padding: 0px 0px !important;
+  filter: none !important;
+}
+
+/* ---------------------------------------------------------
+   GLOBAL TEXT SHADOW OVERRIDE (Unified Glow)
+   Forces all text shadows to #00cc55
+--------------------------------------------------------- */
+
+.pipboy-theme,
+.pipboy-theme * {
+  text-shadow: 0 0 4px #00cc55 !important;
+}
+
+
+/*8cff9a//4cff6a//00cc55/*/
+
+/* LOGIN FORM LAYOUT OVERRIDES */
+#loginView {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 340px;
+  margin: 0 auto;
+  gap: 0;
+}
+#loginView .line {
+  margin-top: 18px;
+  margin-bottom: 4px;
+  font-size: 22px;
+  color: #00cc55 !important;
+  text-shadow: 0 0 3px #00cc55;
+  font-family: "VT323", monospace !important;
+  padding: 0;
+}
+#loginView input {
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 22px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+#loginView .error {
+  margin-top: 12px;
+  margin-bottom: 0;
+  display: block;
+}
+#loginView .login-btn-row {
+  display: flex;
+  justify-content: center;   /* centers the buttons as a group */
+  align-items: center;
+  gap: 16px;                 /* space between buttons */
+  margin-top: 18px;
+  margin-bottom: 20px;
+}
+
+#loginView .login-btn-row button {
+  flex: 1 1 0;
+  width: auto;
+  font-size: 22px;
+  padding: 10px 10px;
+  margin: 0;                 /* remove extra margin */
+  justify-content: center;
+}
+
+
